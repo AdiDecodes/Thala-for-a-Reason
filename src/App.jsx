@@ -188,7 +188,7 @@ const App = () => {
 		}
 	};
 
-	const [isquery, setIsquery] = useState(false);
+	const [isquery, setIsquery] = useState(true);
 	const [query, setQuery] = useState('');
 
 	useEffect(() => {
@@ -197,9 +197,11 @@ const App = () => {
 		);
 		const query = params.get('query');
 		if (query) {
+			setIsquery(true);
 			const data = decodeQuery(query);
 			setQuery(data);
-			setIsquery(true);
+		} else {
+			setIsquery(false);
 		}
 	}, []);
 
