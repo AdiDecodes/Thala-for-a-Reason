@@ -1,0 +1,479 @@
+@import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Poppins:wght@200;300;400;600&display=swap');
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+.main {
+	background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.dev/svgjs' width='1920' height='1000' preserveAspectRatio='none' viewBox='0 0 1920 1000'%3e%3cg mask='url(%26quot%3b%23SvgjsMask1019%26quot%3b)' fill='none'%3e%3crect width='1920' height='1000' x='0' y='0' fill='rgba(0%2c 0%2c 0%2c 1)'%3e%3c/rect%3e%3cpath d='M 0%2c492 C 128%2c426.4 384%2c171.6 640%2c164 C 896%2c156.4 1024%2c446.6 1280%2c454 C 1536%2c461.4 1792%2c251.6 1920%2c201L1920 1000L0 1000z' fill='rgba(0%2c 0%2c 0%2c 1)'%3e%3c/path%3e%3cpath d='M 0%2c582 C 192%2c624.2 576%2c807.8 960%2c793 C 1344%2c778.2 1728%2c565 1920%2c508L1920 1000L0 1000z' fill='rgba(255%2c 230%2c 0%2c 0.93)'%3e%3c/path%3e%3c/g%3e%3cdefs%3e%3cmask id='SvgjsMask1019'%3e%3crect width='1920' height='1000' fill='white'%3e%3c/rect%3e%3c/mask%3e%3c/defs%3e%3c/svg%3e");
+	height: 100vh;
+	opacity: 1;
+	width: 100%;
+	position: relative;
+	font-family: 'Poppins', sans-serif;
+
+	.overlay {
+		display: flex;
+		position: absolute;
+		height: 100%;
+		width: 100%;
+		z-index: 3;
+		opacity: 1;
+		// background-color: rgba(0, 0, 0, 0.5);
+
+		.heartsWrapper {
+			width: 50%;
+			height: 100%;
+			position: absolute;
+			right: 0;
+
+			> .heart {
+				position: absolute;
+				height: 2%;
+				min-height: 25px;
+				width: 2%;
+				min-width: 25px;
+				background-color: rgb(255, 221, 0);
+				-webkit-mask-image: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z"></path></svg>');
+				mask-image: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z"></path></svg>');
+				-webkit-mask-repeat: no-repeat;
+				mask-repeat: no-repeat;
+				-webkit-mask-position: bottom;
+				mask-position: bottom;
+				opacity: 0;
+				animation: floating-heart-right 10s infinite
+					cubic-bezier(0.5, 0.5, 0.5, 0.5);
+
+				@keyframes floating-heart-right {
+					0% {
+						opacity: 0;
+						bottom: 0%;
+						right: 0%;
+					}
+					10% {
+						opacity: 1;
+						bottom: 20%;
+						right: 10%;
+					}
+					20% {
+						bottom: 40%;
+						right: 20%;
+					}
+					30% {
+						bottom: 60%;
+						right: 10%;
+					}
+					40% {
+						opacity: 1;
+						bottom: 80%;
+						right: 20%;
+					}
+					48% {
+						opacity: 0;
+						bottom: 100%;
+						right: 10%;
+					}
+					100% {
+						opacity: 0;
+						bottom: 100%;
+						right: 20%;
+					}
+				}
+
+				&:nth-child(1) {
+					animation-delay: 0.5s;
+				}
+
+				&:nth-child(2) {
+					animation-delay: 2s;
+				}
+
+				&:nth-child(3) {
+					animation-delay: 3s;
+				}
+
+				&:nth-child(4) {
+					animation-delay: 5.5s;
+				}
+				&:nth-child(5) {
+					animation-delay: 6.5s;
+				}
+				&:nth-child(6) {
+					animation-delay: 7.5s;
+				}
+				&:nth-child(7) {
+					animation-delay: 8.5s;
+				}
+				&:nth-child(8) {
+					animation-delay: 9.5s;
+				}
+				&:nth-child(9) {
+					animation-delay: 10.5s;
+				}
+			}
+		}
+
+		.hearts {
+			width: 50%;
+			height: 100%;
+			position: absolute;
+			z-index: 2;
+
+			> .heart {
+				position: absolute;
+				height: 2%;
+				min-height: 25px;
+				width: 2%;
+				min-width: 25px;
+				background-color: rgb(255, 221, 0);
+				-webkit-mask-image: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z"></path></svg>');
+				mask-image: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z"></path></svg>');
+				-webkit-mask-repeat: no-repeat;
+				mask-repeat: no-repeat;
+				-webkit-mask-position: bottom;
+				mask-position: bottom;
+				opacity: 0;
+				animation: floating-heart 10s infinite
+					cubic-bezier(0.5, 0.5, 0.5, 0.5);
+
+				@keyframes floating-heart {
+					0% {
+						opacity: 0;
+						bottom: 0%;
+						left: 0%;
+					}
+					10% {
+						opacity: 1;
+						bottom: 20%;
+						left: 10%;
+					}
+					20% {
+						bottom: 40%;
+						left: 20%;
+					}
+					30% {
+						bottom: 60%;
+						left: 10%;
+					}
+					40% {
+						opacity: 1;
+						bottom: 80%;
+						left: 20%;
+					}
+					48% {
+						opacity: 0;
+						bottom: 100%;
+						left: 10%;
+					}
+					100% {
+						opacity: 0;
+						bottom: 100%;
+						left: 20%;
+					}
+				}
+
+				&:nth-child(1) {
+					animation-delay: 1s;
+				}
+
+				&:nth-child(2) {
+					animation-delay: 2.5s;
+				}
+
+				&:nth-child(3) {
+					animation-delay: 3.5s;
+				}
+
+				&:nth-child(4) {
+					animation-delay: 4.5s;
+				}
+				&:nth-child(5) {
+					animation-delay: 6.5s;
+				}
+				&:nth-child(6) {
+					animation-delay: 7.5s;
+				}
+				&:nth-child(7) {
+					animation-delay: 8.5s;
+				}
+				&:nth-child(8) {
+					animation-delay: 9.5s;
+				}
+				&:nth-child(9) {
+					animation-delay: 10.5s;
+				}
+			}
+		}
+	}
+
+	> .videoWrapper {
+		position: absolute;
+		height: 100%;
+		width: 100%;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		height: 100vh;
+		opacity: 1;
+		overflow: hidden;
+		z-index: 2;
+		transition: all 0.15s ease-in-out;
+
+		> video {
+			object-fit: cover;
+			height: 100%;
+			width: 100%;
+		}
+
+		> button {
+			background-color: white;
+			padding: 2rem;
+		}
+	}
+
+	.hidden {
+		opacity: 0;
+	}
+
+	.errorWrapper {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		height: 100vh;
+		width: 100%;
+		opacity: 1;
+		overflow: hidden;
+		z-index: 2;
+		background-size: calc(100% / 5);
+		background-image: url('../assets/nonThalaSearch.jpeg');
+
+		> .error {
+			object-fit: cover;
+			height: 100%;
+			width: 100%;
+		}
+
+		> button {
+			background-color: white;
+			padding: 2rem;
+		}
+	}
+
+	.inputParent {
+		height: 100vh;
+		width: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-direction: column;
+		position: absolute;
+		z-index: 4;
+
+		> .controllers {
+			display: flex;
+			gap: 1rem;
+			margin: 2rem 2rem 0 0;
+			position: absolute;
+			top: 0;
+			right: 0;
+			z-index: 3;
+
+			> svg {
+				color: white;
+				font-size: 2rem;
+				transition: all 0.15s ease-in-out;
+
+				&:hover {
+					cursor: pointer;
+					transform: scale(1.1);
+				}
+			}
+		}
+
+		.topLabel {
+			font-size: 2.5rem;
+			color: rgb(255, 255, 255);
+			font-weight: 600;
+			margin: 1rem 0 0 0;
+		}
+
+		.msg {
+			font-size: 2rem;
+			color: yellow;
+			font-weight: 500;
+			margin: 2rem 0 0 0;
+		}
+
+		.inputWrapper {
+			width: 100%;
+			display: flex;
+			justify-content: center;
+			margin: 1rem 0 0 0;
+
+			input {
+				background-color: #ffffff;
+				width: 40%;
+				border: none;
+				border-top-left-radius: 5rem;
+				border-bottom-left-radius: 5rem;
+				padding: 0 2rem;
+				font-size: 1.25rem;
+
+				&::placeholder {
+					font-size: 1.15rem;
+				}
+
+				&:focus {
+					outline: none;
+				}
+			}
+
+			.submit {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				width: 7rem;
+				height: 3.5rem;
+				border-top-right-radius: 5rem;
+				border-bottom-right-radius: 5rem;
+				border-left: 1px solid grey;
+				border: 1px solid white;
+				background-color: rgb(24, 24, 24);
+				transition: all 0.15s ease-in-out;
+				color: white;
+
+				&:hover {
+					cursor: pointer;
+					background-color: rgb(255, 217, 0);
+					border: 1px solid #ffffff;
+
+					> p {
+						color: rgb(0, 0, 0);
+					}
+				}
+
+				&:active {
+					transform: scale(0.97);
+				}
+
+				> p {
+					color: rgb(255, 255, 255);
+					font-weight: 600;
+					font-size: 1.3rem;
+					transition: all 0.15s ease-in-out;
+				}
+			}
+		}
+	}
+
+	.shareDiv {
+		position: absolute;
+		padding: 0 2rem;
+		right: 0;
+		bottom: 0;
+		width: 100%;
+
+		.shareLabel {
+			font-size: 1.5rem;
+			color: white;
+			text-align: right;
+		}
+
+		> .shareButtonWrapper {
+			display: flex;
+			align-items: center;
+			justify-content: flex-end;
+			margin: 1.5rem 0;
+			gap: 1.5rem;
+
+			> svg {
+				color: white;
+				transition: all 0.15s ease-in-out;
+				font-size: 1.75rem;
+
+				&:hover {
+					cursor: pointer;
+					transform: scale(1.2);
+				}
+			}
+		}
+	}
+
+	.credits {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		position: absolute;
+		bottom: 10px;
+		left: 10px;
+		opacity: 0.75;
+		transition: all 0.15s ease-in-out;
+
+		&:hover {
+			cursor: pointer;
+			opacity: 1;
+		}
+
+		> a {
+			all: unset;
+			color: rgb(35, 35, 35);
+			font-size: 1.25rem;
+			font-weight: 500;
+			margin: 0 0.5rem 0 0;
+			font-family: 'Kaushan Script', cursive;
+		}
+	}
+}
+
+@media (max-width: 600px) {
+	html {
+		font-size: 80.5%;
+	}
+	.main {
+		.inputParent {
+			padding: 0 7%;
+
+			> p {
+				text-align: center;
+			}
+
+			.inputWrapper {
+				height: 4rem;
+				width: 100%;
+
+				input {
+					width: 80%;
+				}
+
+				.submit {
+					width: 20%;
+					height: 100%;
+				}
+			}
+		}
+
+		.shareDiv {
+			right: 50%;
+			transform: translate(50%, 0);
+			bottom: 0;
+			margin: 0 0 4rem 0;
+
+			> .shareLabel {
+				text-align: center;
+			}
+
+			> .shareButtonWrapper {
+				justify-content: center;
+			}
+		}
+
+		.credits {
+			bottom: 20px;
+			left: 50%;
+			transform: translate(-50%, 0);
+		}
+	}
+}
