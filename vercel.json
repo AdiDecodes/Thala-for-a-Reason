@@ -1,0 +1,12 @@
+{
+	"version": 2,
+	"name": "Thala-for-a-reason",
+	"builds": [
+		{
+			"src": "package.json",
+			"use": "@vercel/static-build",
+			"config": { "distDir": "dist" }
+		}
+	],
+	"routes": [{ "src": "/(.*)", "dest": "/$1" }]
+}
