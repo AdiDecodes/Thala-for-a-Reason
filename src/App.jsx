@@ -102,10 +102,6 @@ const App = () => {
 			const url = new URL(window.location.href);
 			url.search = '';
 			window.history.pushState({}, '', url);
-			setReasonFound({
-				isFound: 'notfound',
-				msg: '',
-			});
 			videoRef.current.pause();
 			if (
 				wordList.includes(inputValue.toLowerCase())
