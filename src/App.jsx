@@ -346,6 +346,7 @@ const App = () => {
 					<div
 						className={styles.showSuccess}
 						onClick={() => {
+							setInput(query);
 							handleInput(query);
 							setIsquery(false);
 						}}
@@ -430,7 +431,7 @@ const App = () => {
 				<div className={styles.inputWrapper}>
 					<input
 						type='text'
-						placeholder='Type a word (e.g. Thala)'
+						placeholder='Type a strong word (e.g. Thala)'
 						value={input}
 						onChange={(e) => setInput(e.target.value)}
 					/>
