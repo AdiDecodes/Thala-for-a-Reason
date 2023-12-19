@@ -28,6 +28,7 @@ import {
 
 const API = import.meta.env.VITE_SHORTENER_API;
 const Base_url = import.meta.env.VITE_BASE_URL;
+
 const App = () => {
 	const video = [meme1, meme2];
 	const randomIndex = Math.floor(
@@ -96,6 +97,37 @@ const App = () => {
 		'tc',
 	];
 
+	function encodeQuery(data) {
+		const ret = [];
+		for (let d in data)
+			ret.push(
+				encodeURIComponent(d) +
+					'=' +
+					encodeURIComponent(data[d])
+			);
+		const queryString = ret.join('&');
+		return btoa(queryString);
+	}
+
+	function decodeQuery(encodedQueryString) {
+		const queryString = atob(encodedQueryString);
+		const query = {};
+		const pairs = (
+			queryString[0] === '?'
+				? queryString.substr(1)
+				: queryString
+		).split('&');
+		for (let i = 0; i < pairs.length; i++) {
+			const pair = pairs[i].split('=');
+			query[decodeURIComponent(pair[0])] =
+				decodeURIComponent(pair[1] || '');
+		}
+
+		const combined = Object.values(query).join('');
+		console.log(combined);
+		return combined;
+	}
+
 	const handleInput = (inputValue) => {
 		setShareUrl('');
 		if (inputValue != '') {
@@ -160,57 +192,29 @@ const App = () => {
 		);
 		const query = params.get('query');
 		if (query) {
-			handleInput(query);
-			setInput(query);
+			const data = decodeQuery(query);
+			handleInput(data);
+			setInput(data);
 		}
 	}, []);
 
 	const generateurl = async (query, service) => {
 		if (shareUrl != '') {
-			OpenShare(service);
+			OpenShare(service, shareUrl);
 			return;
 		}
 
-		const RandomSlug = () => {
-			const date = new Date();
-			const epochTimestamp = Math.floor(
-				date.getTime() / 1000
-			);
-			return `TFAR${epochTimestamp}`;
-		};
-
-		const options = {
-			method: 'POST',
-			url: 'https://api.short.io/links',
-			headers: {
-				accept: 'application/json',
-				'content-type': 'application/json',
-				Authorization: API,
-			},
-			data: {
-				domain: 'cppk.short.gy',
-				allowDuplicates: true,
-				originalURL: `${Base_url}?query=${query}`,
-				path: RandomSlug(),
-				title: 'Is TFAR? Check This Out!',
-				cloaking: false,
-			},
-		};
-
-		try {
-			const response = await axios.request(options);
-			setShareUrl(response.data.shortURL);
-			OpenShare(service, response.data.shortURL);
-		} catch (error) {
-			console.error(error);
-		}
+		const encodedQuery = encodeQuery(query);
+		setShareUrl(encodedQuery);
+		OpenShare(service, encodedQuery);
 	};
 
 	const [shareUrl, setShareUrl] = useState('');
 
 	const OpenShare = (service, ShareUri) => {
 		const message = 'Check This Out! Is TFAR?';
-		const url = ShareUri;
+		const url = Base_url + '?query=' + ShareUri;
+		console.log(url);
 
 		function openWhatsApp(message, url) {
 			const encodedMessage = encodeURIComponent(
