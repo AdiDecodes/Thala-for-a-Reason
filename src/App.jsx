@@ -22,7 +22,6 @@ import axios from 'axios';
 
 import {
 	FaWhatsapp,
-	FaInstagram,
 	FaTwitter,
 	FaFacebook,
 } from 'react-icons/fa';
@@ -239,8 +238,6 @@ const App = () => {
 			)}`;
 			window.open(facebookUrl, '_blank');
 		}
-
-		// Usage
 
 		switch (service) {
 			case 'whatsapp':
