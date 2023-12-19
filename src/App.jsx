@@ -95,6 +95,9 @@ const App = () => {
 		'finisher',
 		'maahi',
 		'tc',
+		'7',
+		'14-7',
+		'8-1',
 	];
 
 	function encodeQuery(data) {
@@ -124,7 +127,6 @@ const App = () => {
 		}
 
 		const combined = Object.values(query).join('');
-		console.log(combined);
 		return combined;
 	}
 
@@ -186,6 +188,9 @@ const App = () => {
 		}
 	};
 
+	const [isquery, setIsquery] = useState(false);
+	const [query, setQuery] = useState('');
+
 	useEffect(() => {
 		const params = new URLSearchParams(
 			window.location.search
@@ -193,8 +198,8 @@ const App = () => {
 		const query = params.get('query');
 		if (query) {
 			const data = decodeQuery(query);
-			handleInput(data);
-			setInput(data);
+			setQuery(data);
+			setIsquery(true);
 		}
 	}, []);
 
@@ -260,7 +265,7 @@ const App = () => {
 	});
 
 	const handleMetadataLoaded = () => {
-		console.log(videoRef.current.muted);
+		console.log(videoRef.current.paused);
 		if (videoRef.current) {
 			if (videoRef.current.paused) {
 				setVideoProps({
@@ -334,6 +339,21 @@ const App = () => {
 					/>
 				</video>
 			</div>
+			{isquery && (
+				<div className={styles.preSuccessWrapper}>
+					<p>Complete 'Bole Jo K . . .'</p>
+					<p>OR</p>
+					<div
+						className={styles.showSuccess}
+						onClick={() => {
+							handleInput(query);
+							setIsquery(false);
+						}}
+					>
+						Click Here
+					</div>
+				</div>
+			)}
 
 			{reasonFound.isFound == 'notfound' && (
 				<div className={styles.errorWrapper}></div>

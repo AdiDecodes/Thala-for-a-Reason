@@ -262,6 +262,52 @@
 		}
 	}
 
+	.preSuccessWrapper {
+		position: absolute;
+		height: 100%;
+		z-index: 5;
+		background-color: black;
+		width: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-direction: column;
+
+		> p:first-child {
+			font-size: 1.75rem;
+			color: rgb(255, 255, 255);
+			font-weight: 500;
+		}
+
+		> p:nth-child(2) {
+			font-size: 1.25rem;
+			color: rgb(255, 255, 255);
+			font-weight: 500;
+			margin: 1rem 0 0 0;
+		}
+
+		.showSuccess {
+			background-color: #ffffff;
+			padding: 1rem 5rem;
+			border-radius: 1rem;
+			margin: 1rem 0 0 0;
+			transition: all 0.15s ease-in-out;
+			color: rgb(0, 0, 0);
+			border: 1px solid transparent;
+			font-size: 1.25rem;
+
+			&:hover {
+				cursor: pointer;
+				background-color: rgb(255, 217, 0);
+				border: 1px solid #ffffff;
+
+				> p {
+					color: rgb(0, 0, 0);
+				}
+			}
+		}
+	}
+
 	.inputParent {
 		height: 100vh;
 		width: 100%;
