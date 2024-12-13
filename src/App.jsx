@@ -474,7 +474,7 @@ const App = () => {
 					</div>
 				)}
 				<div className={styles.credits}>
-					<a href='https://www.instagram.com/_.adityyaa'>
+					<a href='https://www.instagram.com/adit.yaml'>
 						Aditya Singh
 					</a>
 				</div>
