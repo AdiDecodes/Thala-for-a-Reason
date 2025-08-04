@@ -1,8 +1,4 @@
-# React + Vite
+# Thala for a Reason 🤯
+A fun web app to check if your name, birthday, or any string sums up to **7** – because there's always a Thala for a reason!
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+[🌐 Live Demo](https://adidecodes.github.io/Thala-for-a-Reason) | [🎥 Watch the Trend](https://www.instagram.com/explore/tags/thalaforareason/)
